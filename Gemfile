@@ -17,7 +17,7 @@ group :assets do
   gem 'rspec', '2.8.0'
   gem 'rspec-rails', '2.8.0'
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer'
+  gem 'therubyracer'
   gem 'database_cleaner'
   gem 'factory_girl'
   gem 'uglifier', '>= 1.0.3'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120223165217) do
+ActiveRecord::Schema.define(:version => 20120224145940) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -20,6 +20,15 @@ ActiveRecord::Schema.define(:version => 20120223165217) do
     t.datetime "updated_at",  :null => false
     t.integer  "votation_id"
   end
+
+  create_table "option_values", :force => true do |t|
+    t.integer  "option_id"
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "option_values", ["option_id"], :name => "index_option_values_on_option_id"
 
   create_table "options", :force => true do |t|
     t.string   "nome"
@@ -37,11 +46,9 @@ ActiveRecord::Schema.define(:version => 20120223165217) do
   end
 
   create_table "votes", :force => true do |t|
-    t.integer  "option_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.integer  "option_value_id"
   end
-
-  add_index "votes", ["option_id"], :name => "index_votes_on_option_id"
 
 end

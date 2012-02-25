@@ -1,0 +1,16 @@
+<form action="/votations/<%= @votation.id%>" method="post">
+<% @votation.options.each do |option| %>
+	<h3><%= option.nome %></h3> 
+	<strong><%= "Máximo #{option.quantity}" if option.quantity > 1 %></strong>
+	<br />
+	<% option.option_values.each do |option_value| %>
+		<% if option.quantity > 1 %>
+		<input type="checkbox" name="vote[<%= option.id%>][]" value="<%= option_value.id %>"> <%= option_value.name %>
+		<% else %>
+		<%= radio_button("vote", option.id, option_value.id) %> <%= option_value.name %>
+		<% end %>
+	<% end %>
+<% end %>
+<br />
+<button>Enviar</button>
+</form>

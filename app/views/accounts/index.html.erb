@@ -1,0 +1,4 @@
+<%= simple_form_for @account do |f| %>
+  <%= f.input :cpf, :label => 'Seu CPF: ', :input_html => { :size => '20' } %>
+  <%= f.button :submit, 'Login' %>
+<% end %>

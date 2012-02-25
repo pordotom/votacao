@@ -1,4 +1,12 @@
 Votacao::Application.routes.draw do
+  
+  match 'accounts/' => 'accounts#index', :as => :accounts, :via => :get
+  match 'accounts/' => 'accounts#login', :as => :account_login, :via => :post
+  match 'accounts/not-found' => 'accounts#not_found', :as => :account_not_found, :via => :get
+  
+  match 'votations/:id' => 'votations#index', :as => :votation, :via => :get
+  match 'votations/:id' => 'votations#create', :as => :votation, :via => :post
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

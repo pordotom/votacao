@@ -5,9 +5,9 @@
 	<br />
 	<% option.option_values.each do |option_value| %>
 		<% if option.quantity > 1 %>
-		<input type="checkbox" name="vote[<%= option.id%>][]" value="<%= option_value.id %>"> <%= option_value.name %>
+		<input type="checkbox" name="vote[<%= option.id%>][]" value="<%= option_value.id %>"> <%= option_value.name %><br />
 		<% else %>
-		<%= radio_button("vote", option.id, option_value.id) %> <%= option_value.name %>
+		<%= radio_button("vote", option.id, option_value.id) %> <%= option_value.name %><br />
 		<% end %>
 	<% end %>
 <% end %>
